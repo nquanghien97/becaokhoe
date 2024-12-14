@@ -6,3 +6,35 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.content p {
+  margin-bottom: 1.3rem;
+}
+
+.content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.content h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.content h4 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.content figure {
+  margin-bottom: 1.3rem;
+}
+
+.content img {
+  margin-bottom: 1.3rem;
+}
+
+.content a {
+  color: #0092ff
+}
+

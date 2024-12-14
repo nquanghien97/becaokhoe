@@ -7,8 +7,8 @@ const PUBLIC_ROUTES = [
 ];
 
 // Các route được miễn xác thực
-const EXCLUDED_ROUTES = [
-  '/api/news'
+const EXCLUDED_ROUTES: string[] = [
+  '/api/images',
 ];
 
 export async function middleware(req: NextRequest) {
@@ -36,10 +36,11 @@ export async function middleware(req: NextRequest) {
   const isExcludedRoute = EXCLUDED_ROUTES.some(route => 
     req.nextUrl.pathname.startsWith(route)
   );
-  
   const isAllowedMethod = [
     '/api/images' === req.nextUrl.pathname && req.method === 'GET',
     '/api/news' === req.nextUrl.pathname && req.method === 'GET',
+    req.nextUrl.pathname.startsWith('/api/news/') && req.method === 'GET',
+    '/api/category' === req.nextUrl.pathname && req.method === 'GET',
   ].some(Boolean);
   
   // Nếu là route công khai hoặc được miễn, cho phép qua
@@ -50,9 +51,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // Lấy token từ header hoặc cookie
-  const token = 
-    req.cookies.get('token')?.value ||
-    req.headers.get('authorization')?.split(' ')[1]
+  const token = req.cookies.get('token')?.value || req.headers.get('Authorization')?.split(' ')[1]
   // Kiểm tra token
   if (!token || token === 'undefined') {
     // redirect('/')
@@ -70,14 +69,12 @@ export async function middleware(req: NextRequest) {
       }
     );
   }
-
   try {
     // Xác thực token
     const secret = new TextEncoder().encode(process.env.NEXT_PUBLIC_ACCESS_TOKEN_SECRET);
     const { payload } = await jwtVerify(token, secret, {
       algorithms: ['HS256']
     });
-
     // Tạo response mới với thông tin user
     const response = NextResponse.next({
       headers: {

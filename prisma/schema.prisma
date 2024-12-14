@@ -16,14 +16,30 @@ model User {
   News News[]
 }
 
+model Category {
+  id   Int            @id @default(autoincrement())
+  name String         @unique
+  slug String         @unique
+  news NewsCategory[]
+}
+
 model News {
-  id            Int      @id @default(autoincrement())
+  id            Int            @id @default(autoincrement())
   title         String
-  slug          String   @unique
-  content       String
-  category      String
+  slug          String         @unique
+  content       String         @db.LongText
+  categories    NewsCategory[]
   thumbnail_url String
   author_id     Int
-  author        User     @relation(fields: [author_id], references: [id])
-  created_at    DateTime @default(now())
+  author        User           @relation(fields: [author_id], references: [id])
+  created_at    DateTime       @default(now())
+}
+
+model NewsCategory {
+  news_id     Int
+  category_id Int
+  news        News     @relation(fields: [news_id], references: [id])
+  category    Category @relation(fields: [category_id], references: [id])
+
+  @@id([news_id, category_id]) // Composite primary key
 }
