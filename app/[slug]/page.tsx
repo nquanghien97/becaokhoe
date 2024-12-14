@@ -21,7 +21,7 @@ async function page({ params }: { params: { slug: string } }) {
           <Link href={`/${slug}/${item.slug}`} key={item.id}>
             <div className="flex items-center gap-4">
               <div className="mb-4">
-                <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${item.thumbnail_url}`} alt={item.title} width={336} height={188} />
+                <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${item.thumbnail_url}`} alt={item.title} width={336} height={188} className="h-[188px] object-cover" />
               </div>
               <div>
                 <h5 className="font-bold">{item.title}</h5>
