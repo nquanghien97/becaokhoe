@@ -1,4 +1,4 @@
-export const truncateText = (text: string): string => {
+export const truncateText = (text: string, end: number): string => {
   const text_array = text.split(' ')
-  return `${text_array.slice(0, 15).join(' ')} [...]`
+  return `${text_array.slice(0, end).join(' ')} [...]`
 }

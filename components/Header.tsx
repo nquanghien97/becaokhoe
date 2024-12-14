@@ -13,7 +13,9 @@ function Header() {
       <div className="border-b py-2">
         <div className="max-w-7xl m-auto flex items-center justify-between">
           <div className="flex-1 w-full flex justify-center">
-            <Image src="/logo-be-cao-khoe.png" alt="logo" width={60} height={60} />
+            <Link href="/">
+              <Image src="/logo-be-cao-khoe.png" alt="logo" width={60} height={60} />
+            </Link>
           </div>
           <div>
             <input placeholder="Tìm kiếm" className="outline-0 border p-2" />

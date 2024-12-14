@@ -13,6 +13,8 @@ export async function getNews({ page, page_size, category_slug }: { page?: numbe
 }
 
 export async function getNewsBySlug(slug: string): Promise<NewsEntity> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/news/${slug}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/news/${slug}`, {
+    cache: 'no-store'
+  })
   return res.json()
 }

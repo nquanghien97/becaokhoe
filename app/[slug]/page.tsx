@@ -25,7 +25,7 @@ async function page({ params }: { params: { slug: string } }) {
               </div>
               <div>
                 <h5 className="font-bold">{item.title}</h5>
-                <div className="text-sm" dangerouslySetInnerHTML={{ __html: truncateText(item.content) }} />
+                <div className="text-sm" dangerouslySetInnerHTML={{ __html: truncateText(item.content, 15) }} />
               </div>
             </div>
           </Link>

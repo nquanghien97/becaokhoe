@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
       },
+      {
+        protocol: 'http',
+        hostname: '103.183.112.179'
+      }
     ]
   },
   async headers() {
