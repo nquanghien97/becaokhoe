@@ -20,7 +20,7 @@ async function page({ params }: { params: { slug: string } }) {
         {data.map(item => (
           <Link href={`/${slug}/${item.slug}`} key={item.id}>
             <div className="flex items-center gap-4">
-              <div>
+              <div className="mb-4">
                 <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${item.thumbnail_url}`} alt={item.title} width={336} height={188} />
               </div>
               <div>
