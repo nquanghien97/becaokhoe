@@ -11,12 +11,12 @@ export default async function Home() {
 
   return (
     <main className="py-4">
-      <section className="max-w-7xl m-auto flex gap-4 mb-8">
+      <section className="max-w-6xl m-auto flex gap-4 mb-8">
         {data_vui_choi.length !== 0 ? (
           <div className="w-2/3">
             <Link href={`/be-vui-choi/${data_vui_choi[0].slug}`}>
               <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${data_vui_choi[0].thumbnail_url}`} alt={data_vui_choi[0].title} width={1920} height={1080} className="mb-2" />
-              <h3 className="text-xl font-bold mb-4">{data_vui_choi[0].title}</h3>
+              <h3 className="text-2xl font-bold mb-4">{data_vui_choi[0].title}</h3>
               <div className="content text-sm" dangerouslySetInnerHTML={{ __html: truncateText(data_vui_choi[0].content, 20) }} />
             </Link>
             <div className="flex gap-4">
@@ -51,7 +51,7 @@ export default async function Home() {
           )}
         </div>
       </section>
-      <section className="max-w-7xl m-auto mb-8">
+      <section className="max-w-6xl m-auto mb-8">
         <div className="w-full bg-[#f34764] p-2">
           <h2 className="uppercase font-bold text-white">Đồ dùng cho bé</h2>
         </div>

@@ -12,7 +12,7 @@ async function page({ params }: { params: { detail_slug: string } }) {
   const { data: category_data } = await getCategories() as unknown as { data: CategoryEntity[] }
 
   return (
-    <main className="max-w-7xl m-auto py-4 flex">
+    <main className="max-w-6xl m-auto py-4 flex">
       <div className="w-3/4 px-7">
         <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.content }} className="content" />

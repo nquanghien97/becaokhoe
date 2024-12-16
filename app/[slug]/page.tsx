@@ -15,7 +15,7 @@ async function page({ params }: { params: { slug: string } }) {
   const { data: news_data } = await getNews({ page: 1, page_size: 5 }) as unknown as { data: NewsEntity[] }
   const { data: category_data } = await getCategories() as unknown as { data: CategoryEntity[] }
   return (
-    <main className="max-w-7xl m-auto flex max-md:flex-col py-4">
+    <main className="max-w-6xl m-auto flex max-md:flex-col py-4">
       <div className="w-3/4">
         {data.map(item => (
           <Link href={`/${slug}/${item.slug}`} key={item.id}>
