@@ -11,9 +11,9 @@ export default async function Home() {
 
   return (
     <main className="py-4">
-      <section className="max-w-6xl m-auto flex gap-4 mb-8">
+      <section className="max-w-6xl m-auto flex max-lg:flex-col gap-4 mb-8 px-2">
         {data_vui_choi.length !== 0 ? (
-          <div className="w-2/3">
+          <div className="lg:w-2/3">
             <Link href={`/be-vui-choi/${data_vui_choi[0].slug}`}>
               <Image src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${data_vui_choi[0].thumbnail_url}`} alt={data_vui_choi[0].title} width={1920} height={1080} className="mb-2" />
               <h3 className="text-2xl font-bold mb-4">{data_vui_choi[0].title}</h3>
@@ -31,7 +31,7 @@ export default async function Home() {
         ) : (
           <p>Không có dữ liệu</p>
         )}
-        <div className="w-1/3">
+        <div className="lg:w-1/3">
           {data_nuoi_day.length !== 0 ? (
             <>
               <Link href={`/kien-thuc-nuoi-day-con/${data_nuoi_day[0].slug}`} className="border-b ">
@@ -51,7 +51,7 @@ export default async function Home() {
           )}
         </div>
       </section>
-      <section className="max-w-6xl m-auto mb-8">
+      <section className="max-w-6xl m-auto mb-8 px-2">
         <div className="w-full bg-[#f34764] p-2">
           <h2 className="uppercase font-bold text-white">Đồ dùng cho bé</h2>
         </div>

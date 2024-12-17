@@ -1,4 +1,11 @@
-export const MenuHeader = [
+export interface MenuHeaderType {
+  id: number;
+  title: string;
+  path: string;
+  children?: MenuHeaderType[]
+}
+
+export const MenuHeader: MenuHeaderType[] = [
   {
     id: 1,
     title: 'Đồ dùng cho bé',
